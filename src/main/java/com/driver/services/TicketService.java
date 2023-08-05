@@ -13,7 +13,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class TicketService {
@@ -41,7 +40,7 @@ public class TicketService {
         //throw new Exception("Invalid stations");
         //Save the bookedTickets in the train Object
         //Also in the passenger Entity change the attribute bookedTickets by using the attribute bookingPersonId.
-       //And the end return the ticketId that has come from db
+        //And the end return the ticketId that has come from db
 
         Train train=trainRepository.findById(bookTicketEntryDto.getTrainId()).get();
 
@@ -118,6 +117,5 @@ public class TicketService {
         train.getBookedTickets().add(ticket);
         train=trainRepository.save(train);
         return ticket.getTicketId();
-
     }
 }
